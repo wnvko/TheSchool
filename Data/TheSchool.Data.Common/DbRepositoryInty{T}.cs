@@ -6,11 +6,10 @@
 
     using TheSchool.Data.Common.Models;
 
-    // TODO: Why BaseModel<int> instead BaseModel<TKey>?
-    public class DbRepository<T> : IDbRepository<T>
-        where T : BaseModel<int>
+    public class DbRepositoryInty<T> : IDbRepositoryInty<T>
+        where T : class, IAuditInfo, IDeletableEntity, IIDableEntity<int>
     {
-        public DbRepository(DbContext context)
+        public DbRepositoryInty(DbContext context)
         {
             if (context == null)
             {

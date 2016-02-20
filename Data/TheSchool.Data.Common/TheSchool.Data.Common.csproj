@@ -51,11 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbRepository{T}.cs" />
-    <Compile Include="IDbRepository{T}.cs" />
+    <Compile Include="DbRepositoryInty{T}.cs" />
+    <Compile Include="DbRepositoryStringy{T}.cs" />
+    <Compile Include="IDbRepositoryInty.cs" />
+    <Compile Include="IDbRepositoryStringy.cs" />
+    <Compile Include="IDbRepository{T,TKey}.cs" />
     <Compile Include="Models\BaseModel{TKey}.cs" />
     <Compile Include="Models\IAuditInfo.cs" />
     <Compile Include="Models\IDeletableEntity.cs" />
+    <Compile Include="Models\IIDableEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
