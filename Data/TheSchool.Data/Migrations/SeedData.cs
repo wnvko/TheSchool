@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
+    using System.Data.Entity.Migrations;
     using System.Linq;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -20,19 +20,33 @@
                 AddAdministrator(context);
             }
 
-            if (!context.Roles.Any(r => r.Name == GlobalConstants.TeacherRoleName))
-            {
-                AddTeachers(context);
-            }
-
             if (!context.Disciplines.Any())
             {
                 AddDisciplines(context);
             }
 
+            if (!context.Roles.Any(r => r.Name == GlobalConstants.TeacherRoleName))
+            {
+                AddTeachers(context);
+            }
             if (!context.Divisions.Any())
             {
                 AddDivisions(context);
+            }
+
+            if (!context.Users.Any(u => u.Roles.Count == 0))
+            {
+                AddRandomStudents(context, 320);
+            }
+
+            if (!context.Teachers.Any(t => t.Divisions.Count > 0))
+            {
+                AddTutorsToDivisions(context);
+            }
+
+            if (!context.Marks.Any())
+            {
+                AddMarks(context);
             }
         }
 
@@ -76,6 +90,7 @@
             // Create 16 teachers, a tutor for each class planned
             var userStore = new UserStore<ApplicationUser>(context);
             var userManager = new UserManager<ApplicationUser>(userStore);
+            var disciplines = context.Disciplines.ToList();
             for (int i = 0; i < 16; i++)
             {
                 string firstName = string.Empty;
@@ -97,6 +112,7 @@
                     FirstName = firstName,
                     SecondName = lastName,
                 };
+                teacher.Disciplines.Add(disciplines[random.Next(disciplines.Count)]);
                 userManager.Create(teacher, teacher.Email);
 
                 // Assign user to admin role
@@ -108,42 +124,41 @@
         {
             var math = new Discipline();
             math.Name = "Mathematics";
-            context.Disciplines.Add(math);
+            context.Disciplines.AddOrUpdate(math);
 
             var english = new Discipline();
             english.Name = "English";
-            context.Disciplines.Add(english);
+            context.Disciplines.AddOrUpdate(english);
 
             var gym = new Discipline();
             gym.Name = "Gymnastics";
-            context.Disciplines.Add(gym);
+            context.Disciplines.AddOrUpdate(gym);
 
             var music = new Discipline();
             music.Name = "Musics";
-            context.Disciplines.Add(music);
+            context.Disciplines.AddOrUpdate(music);
 
+            context.SaveChanges();
         }
 
         private static void AddDivisions(ApplicationDbContext context)
         {
-            var tutors = context.Teachers.ToList();
-
             // adding four classes from 1st to 4th grade
+            var disciplines = context.Disciplines.ToList();
             for (int grade = 1; grade <= 4; grade++)
             {
                 for (int index = 1; index <= 4; index++)
                 {
                     var division = new Division();
-                    division.ClassTutorId = tutors[((grade - 1) * 4) + index - 1].Id;
+
                     division.Grade = grade;
                     division.Name = GetDivisioName(grade, index);
-                    division.Students = GetRandomStudents(context, random.Next(10, 20));
-                    foreach (var discipline in context.Disciplines)
+                    foreach (var discipline in disciplines)
                     {
                         division.Disciplines.Add(discipline);
                     }
 
-                    context.Divisions.Add(division);
+                    context.Divisions.AddOrUpdate(division);
                     context.SaveChanges();
                 }
             }
@@ -151,25 +166,45 @@
 
         private static string GetDivisioName(int grade, int index)
         {
-            var name = string.Empty;
+            var indexAsString = string.Empty;
             switch (index)
             {
                 case 1:
-                    return name = $"First {grade}";
+                    indexAsString = "A";
+                    break;
                 case 2:
-                    return name = $"Second {grade}";
+                    indexAsString = "B";
+                    break;
                 case 3:
-                    return name = $"Third {grade}";
+                    indexAsString = "C";
+                    break;
                 case 4:
-                    return name = $"Fourth {grade}";
+                    indexAsString = "D";
+                    break;
                 default:
-                    return name = $"Unknown {grade}";
+                    indexAsString = "No Such Index";
+                    break;
+            }
+
+            var name = string.Empty;
+            switch (grade)
+            {
+                case 1:
+                    return name = $"First {indexAsString}";
+                case 2:
+                    return name = $"Second {indexAsString}";
+                case 3:
+                    return name = $"Third {indexAsString}";
+                case 4:
+                    return name = $"Fourth {indexAsString}";
+                default:
+                    return name = $"Unknown {indexAsString}";
             }
         }
 
-        private static ICollection<Student> GetRandomStudents(ApplicationDbContext context, int studentsCount)
+        private static void AddRandomStudents(ApplicationDbContext context, int studentsCount)
         {
-            var students = new List<Student>();
+            var divisions = context.Divisions.ToList();
             var userStore = new UserStore<ApplicationUser>(context);
             var userManager = new UserManager<ApplicationUser>(userStore);
 
@@ -194,10 +229,9 @@
                 student.SecondName = secondName;
                 student.Email = userName;
                 student.UserName = userName;
+                student.DivisionId = divisions[random.Next(divisions.Count)].Id;
                 userManager.Create(student, userName);
             }
-
-            return students;
         }
 
         private static string GetRandomFirstName(bool female)
@@ -228,6 +262,54 @@
             {
                 return randomSecondName;
             }
+        }
+
+        private static void AddTutorsToDivisions(ApplicationDbContext context)
+        {
+            var tutors = context.Teachers.ToList();
+            var divisions = context.Divisions.ToList();
+            var index = 1;
+            foreach (var division in divisions)
+            {
+                tutors[index].Divisions.Add(division);
+                index++;
+                context.SaveChanges();
+            }
+        }
+
+        private static void AddMarks(ApplicationDbContext context)
+        {
+            var students = context.Students.ToList();
+            var disciplines = context.Disciplines.ToList();
+            var teachersPerDiscipline = new Dictionary<int, List<string>>();
+            foreach (var discipline in disciplines)
+            {
+                teachersPerDiscipline[discipline.Id] = discipline.Teachers.Select(t => t.Id).ToList();
+            }
+
+            var counter = 0;
+            foreach (var student in students)
+            {
+                foreach (var discipline in disciplines)
+                {
+                    for (int index = 0; index < 3; index++)
+                    {
+                        var mark = new Mark();
+                        mark.TeacherId = teachersPerDiscipline[discipline.Id][random.Next(teachersPerDiscipline[discipline.Id].Count)]; //discipline.Teachers.FirstOrDefault().Id;
+                        mark.DisciplineId = discipline.Id;
+                        mark.StudentId = student.Id;
+                        mark.Value = random.Next(1, 7);
+                        context.Marks.AddOrUpdate(mark);
+                        counter++;
+                        if (counter % 100 == 0)
+                        {
+                            context.SaveChanges();
+                        }
+                    }
+                }
+            }
+
+            context.SaveChanges();
         }
     }
 }
