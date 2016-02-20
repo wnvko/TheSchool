@@ -68,6 +68,10 @@
     <Compile Include="Migrations\201602201225269_BaseDbStructureCreated.Designer.cs">
       <DependentUpon>201602201225269_BaseDbStructureCreated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602201437041_PendingChanges.cs" />
+    <Compile Include="Migrations\201602201437041_PendingChanges.Designer.cs">
+      <DependentUpon>201602201437041_PendingChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602201225269_BaseDbStructureCreated.resx">
       <DependentUpon>201602201225269_BaseDbStructureCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602201437041_PendingChanges.resx">
+      <DependentUpon>201602201437041_PendingChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

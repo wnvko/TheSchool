@@ -17,6 +17,16 @@
         {
         }
 
+        public IDbSet<Discipline> Disciplines { get; set; }
+
+        public IDbSet<Division> Divisions { get; set; }
+
+        public IDbSet<Mark> Marks { get; set; }
+
+        public IDbSet<Student> Students { get; set; }
+
+        public IDbSet<Teacher> Teachers { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
