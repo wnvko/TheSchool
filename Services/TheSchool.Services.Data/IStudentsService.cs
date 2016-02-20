@@ -8,5 +8,7 @@
         IQueryable<Student> All();
 
         IQueryable<Student> GetTopTenByMarks();
+
+        IQueryable<Student> GetByClassTutorId(string id);
     }
 }

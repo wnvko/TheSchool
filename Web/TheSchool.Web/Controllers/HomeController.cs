@@ -6,6 +6,7 @@
     using Services.Data;
     using ViewModels.Home;
     using ViewModels.Students;
+
     public class HomeController : BaseController
     {
         private readonly IStudentsService students;
@@ -17,7 +18,7 @@
 
         public ActionResult Index()
         {
-            var topTenStudentsByMarks = students
+            var topTenStudentsByMarks = this.students
                 .GetTopTenByMarks()
                 .To<StudentViewModel>()
                 .ToList();

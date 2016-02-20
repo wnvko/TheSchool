@@ -2,11 +2,29 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<br />
 <div class="row">
-    @foreach (var student in Model.Students)
-    {
-        <div class="col-md-4">
-            @student.FirstName
+    <div class="col-md-8">
+        <h3 class="lead">Latest News</h3>
+    </div>
+    <div class="col-md-4">
+        <div class="col-md-12">
+            <h3 class="lead">Top 10 Students by Marks</h3>
         </div>
-    }
+        <div class="col-md-9 text-center">
+            Student Name
+        </div>
+        <div class="col-md-3 text-center">
+            Marks
+        </div>
+        @foreach (var student in Model.Students)
+        {
+            <div class="col-md-9">
+                @student.FirstName @student.SecondName
+            </div>
+            <div class="col-md-3">
+                @student.Marks.Average(m => m.Value).ToString("#.00")
+            </div>
+        }
+    </div>
 </div>
