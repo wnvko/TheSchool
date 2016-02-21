@@ -4,16 +4,19 @@
     using AutoMapper;
     using Data.Models;
     using Infrastructure.Mapping;
+    using Marks;
 
     public class StudentViewModel : IMapFrom<Student>, IHaveCustomMappings
     {
+        public string Id { get; set; }
+
         public string FirstName { get; set; }
 
         public string SecondName { get; set; }
 
         public string Division { get; set; }
 
-        public virtual ICollection<Mark> Marks { get; set; }
+        public virtual IList<MarksViewModel> Marks { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {

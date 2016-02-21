@@ -199,9 +199,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
+    <Compile Include="Areas\Teacher\Controllers\StudentController.cs" />
     <Compile Include="Areas\Teacher\Controllers\TutorClassController.cs" />
     <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
-    <Compile Include="Areas\Teacher\ViewModels\StudentViewModel.cs" />
+    <Compile Include="Areas\Teacher\ViewModels\MarksDropDownListModel.cs" />
+    <Compile Include="Areas\Teacher\ViewModels\MarkUpdateModel.cs" />
+    <Compile Include="Areas\Teacher\ViewModels\StudentDetailsViewModel.cs" />
     <Compile Include="Areas\Teacher\ViewModels\TutorClassIndexViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -232,6 +235,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Marks\MarksViewModel.cs" />
     <Compile Include="ViewModels\Students\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -258,6 +262,8 @@
     <Content Include="Areas\Teacher\Views\web.config" />
     <Content Include="Areas\Teacher\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Teacher\Views\TutorClass\Index.cshtml" />
+    <Content Include="Areas\Teacher\Views\Student\Details.cshtml" />
+    <Content Include="Areas\Teacher\Views\Shared\_StudentsDetailsPartial.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -300,12 +306,13 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
+    <Content Include="Views\Shared\EditorTemplates\MarksDropDownList.cshtml" />
+    <Content Include="Views\Shared\_StudentMarksPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
-    <Folder Include="Areas\Teacher\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

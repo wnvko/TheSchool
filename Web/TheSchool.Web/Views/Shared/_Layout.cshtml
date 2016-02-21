@@ -24,7 +24,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
                     @if (Roles.IsUserInRole(GlobalConstants.TeacherRoleName))
                     {
-                        <li>@Html.ActionLink("My Class", "Index", "TutorClass", new { area = "Teacher"}, null)</li>
+                        <li>@Html.ActionLink("My Class", "Index", "TutorClass", new { area = "Teacher" }, null)</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

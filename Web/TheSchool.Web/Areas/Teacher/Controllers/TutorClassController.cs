@@ -7,20 +7,18 @@
     using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
     using Services.Data;
-    using Services.Web;
     using ViewModels;
-
+    using Web.Controllers;
+    using Web.ViewModels.Students;
     [Authorize(Roles = GlobalConstants.TeacherRoleName)]
-    public class TutorClassController : Controller
+    public class TutorClassController : BaseController
     {
         private const decimal StudentsPerPage = 4m;
         private readonly IStudentsService students;
-        private readonly ICacheService cash;
 
-        public TutorClassController(IStudentsService students, ICacheService cash)
+        public TutorClassController(IStudentsService students)
         {
             this.students = students;
-            this.cash = cash;
         }
 
         public ActionResult Index(int id = 1)
@@ -33,7 +31,7 @@
             var pages = (int)Math.Ceiling(studentsCount / StudentsPerPage);
             var skip = (page - 1) * StudentsPerPage;
 
-            var studentsModel = this.cash.Get(
+            var studentsModel = this.Cache.Get(
                 $"Students_{teacherId}_{page}",
                 () => this.students
                     .GetByClassTutorId(teacherId)
@@ -48,7 +46,7 @@
             var viewModel = new TutorClassIndexViewModel()
             {
                 Students = studentsModel,
-                ClassName = "Vtori be",
+                ClassName = studentsModel.FirstOrDefault().Division,
                 Page = page,
                 Pages = pages,
             };

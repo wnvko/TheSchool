@@ -1,0 +1,39 @@
+﻿@model ICollection<TheSchool.Web.ViewModels.Students.StudentViewModel>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <th class="text-center">Student Name</th>
+                <th class="text-center" colspan="3">Mathematics</th>
+                <th class="text-center" colspan="3">English</th>
+                <th class="text-center" colspan="3">Musics</th>
+                <th class="text-center" colspan="3">Gymnastics</th>
+            </tr>
+            @foreach (var student in Model)
+            {
+                <tr data-row-index="@student.Id">
+                    <td>
+                        @Html.ActionLink($"{@student.FirstName} {@student.SecondName}", "Details", "Student", new { id = student.Id }, null)
+                    </td>
+                    @foreach (var mark in student.Marks.Where(m => m.Discipline == "Mathematics").ToList())
+                    {
+                        <td>@mark.Value</td>
+                    }
+                    @foreach (var mark in student.Marks.Where(m => m.Discipline == "English").ToList())
+                    {
+                        <td>@mark.Value</td>
+                    }
+                    @foreach (var mark in student.Marks.Where(m => m.Discipline == "Gymnastics").ToList())
+                    {
+                        <td>@mark.Value</td>
+                    }
+                    @foreach (var mark in student.Marks.Where(m => m.Discipline == "Musics").ToList())
+                    {
+                        <td>@mark.Value</td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+</div>
