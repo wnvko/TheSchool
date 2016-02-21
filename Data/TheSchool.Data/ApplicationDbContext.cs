@@ -58,5 +58,7 @@
                 }
             }
         }
+
+        public System.Data.Entity.DbSet<TheSchool.Data.Models.Teacher> ApplicationUsers { get; set; }
     }
 }
