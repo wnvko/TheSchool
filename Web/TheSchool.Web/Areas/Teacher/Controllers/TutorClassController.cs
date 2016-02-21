@@ -10,6 +10,7 @@
     using ViewModels;
     using Web.Controllers;
     using Web.ViewModels.Students;
+
     [Authorize(Roles = GlobalConstants.TeacherRoleName)]
     public class TutorClassController : BaseController
     {

@@ -7,8 +7,12 @@
     {
         IQueryable<Student> All();
 
+        IQueryable<Student> GetByClassTutorId(string id);
+
+        Student GetById(string id);
+
         IQueryable<Student> GetTopTenByMarks();
 
-        IQueryable<Student> GetByClassTutorId(string id);
+        void Save();
     }
 }

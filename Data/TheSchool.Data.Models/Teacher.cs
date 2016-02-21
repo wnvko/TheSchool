@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
     public class Teacher : ApplicationUser
     {
         private ICollection<Discipline> disciplines;
@@ -22,7 +23,7 @@
         [Required]
         public string SecondName { get; set; }
 
-        public virtual ICollection< Division> Divisions
+        public virtual ICollection<Division> Divisions
         {
             get { return this.divisions; }
             set { this.divisions = value; }

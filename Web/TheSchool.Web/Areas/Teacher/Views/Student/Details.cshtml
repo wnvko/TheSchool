@@ -1,14 +1,27 @@
-﻿@model TheSchool.Web.Areas.Teacher.ViewModels.StudentDetailsViewModel
+﻿@model TheSchool.Web.ViewModels.Students.StudentViewModel
 
 @{
-    ViewBag.Title =$"{Model.Students[0].FirstName} {Model.Students[0].SecondName} Details";
+    ViewBag.Title = $"{Model.FirstName} {Model.SecondName} Details";
 }
 
-<h2>Details for @Model.Students[0].FirstName @Model.Students[0].SecondName from @Model.Students[0].Division</h2>
-@Html.Partial("_StudentsDetailsPartial", Model.Students)
-
-<button class="btn btn-success" data-id="button-edit" data-value="@Model.Students[0].Id">Edit @Model.Students[0].FirstName's Marks</button>
-
+<h2>Details for @Model.FirstName @Model.SecondName from @Model.Division</h2>
 <div class="row">
-    @Html.Partial("_StudentMarksPartial", Model.Students[0])
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <th class="text-center">Student Name</th>
+                    <th class="text-center" colspan="3">Mathematics</th>
+                    <th class="text-center" colspan="3">English</th>
+                    <th class="text-center" colspan="3">Musics</th>
+                    <th class="text-center" colspan="3">Gymnastics</th>
+                </tr>
+                @Html.Partial("_StudentDetailsPartial", Model)
+            </table>
+        </div>
+    </div>
 </div>
+
+@Html.Partial("_StudentMarksPartial", Model)
+
+

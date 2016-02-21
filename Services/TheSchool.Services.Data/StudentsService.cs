@@ -26,12 +26,23 @@
                 .Where(s => s.Division.ClassTutorId == id);
         }
 
+        public Student GetById(string id)
+        {
+            return this.students
+                .GetById(id);
+        }
+
         public IQueryable<Student> GetTopTenByMarks()
         {
             return this.students
                 .All()
                 .OrderByDescending(s => s.Marks.Average(m => m.Value))
                 .Take(10);
+        }
+
+        public void Save()
+        {
+            this.students.Save();
         }
     }
 }

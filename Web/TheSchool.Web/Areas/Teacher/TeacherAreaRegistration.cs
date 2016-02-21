@@ -17,8 +17,7 @@
             context.MapRoute(
                 "Teacher_default",
                 "Teacher/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
-            );
+                new { action = "Index", id = UrlParameter.Optional });
         }
     }
 }

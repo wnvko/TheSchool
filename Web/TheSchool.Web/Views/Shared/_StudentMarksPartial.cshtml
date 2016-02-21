@@ -1,7 +1,4 @@
 ﻿@model TheSchool.Web.ViewModels.Students.StudentViewModel
-@{
-    ViewBag.Title = "StudentMarksEditor";
-}
 
 <div class="row">
     <h1 class="text-center text-success">Update @Model.FirstName @Model.SecondName Marks Here</h1>
@@ -15,23 +12,20 @@
             {
                 <div class="col-md-3">
                     <div class="form-group">
-                        @Html.Label("marks", Model.Marks[i].Discipline, new { @class = "label label-info" })
-                        @Html.DropDownList("marks", new SelectList(new[] { 1, 2, 3, 4, 5, 6 }), Model.Marks[i].Value.ToString(), new { @class = "form-control" })
+                        @Html.Label("model.Marks[" + i + "].Value", Model.Marks[i].Discipline, new { @class = "label label-info" })
+                        @Html.DropDownList("model.Marks[" + i + "].Value", new SelectList(new[] { 1, 2, 3, 4, 5, 6 }), Model.Marks[i].Value.ToString(), new { @class = "form-control", value=Model.Marks[i].Value.ToString() })
                         @Html.ValidationMessageFor(m => m.Marks)
+                        @Html.Hidden("model.Marks[" + i + "].Id", Model.Marks[i].Id)
                     </div>
                 </div>
             }
         </div>
         <br />
+        @Html.Hidden("model.Id", Model.Id, new { @class = "form-control" })
         <div class="row">
             <input type="submit" class="btn btn-success" value="Update Marks" />
             <a href="~/Teacher/TutorClass" class="btn btn-success">Cancel</a>
         </div>
-        @*@Html.HiddenFor(m => m.Id)
-        @Html.HiddenFor(m => m.FirstName)
-        @Html.HiddenFor(m => m.SecondName)
-        @Html.HiddenFor(m => m.Division)*@
     }
 </div>
 
-@*"model.Marks[" + i + "].Value"*@

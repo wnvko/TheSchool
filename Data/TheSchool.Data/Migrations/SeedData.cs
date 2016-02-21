@@ -29,6 +29,7 @@
             {
                 AddTeachers(context);
             }
+
             if (!context.Divisions.Any())
             {
                 AddDivisions(context);
@@ -102,8 +103,8 @@
                     firstName = GetRandomFirstName(female);
                     lastName = GetRandomLastName(female);
                     userName = $"{firstName}.{lastName}@theschool.com";
-
-                } while (context.Users.Any(t => t.UserName == userName));
+                }
+                while (context.Users.Any(t => t.UserName == userName));
 
                 var teacher = new Teacher
                 {
@@ -221,9 +222,8 @@
                     firstName = GetRandomFirstName(female);
                     secondName = GetRandomLastName(female);
                     userName = $"{firstName}.{secondName}@theschool.com";
-
-                } while (context.Users.Any(t => t.UserName == userName));
-
+                }
+                while (context.Users.Any(t => t.UserName == userName));
 
                 student.FirstName = firstName;
                 student.SecondName = secondName;
@@ -295,7 +295,7 @@
                     for (int index = 0; index < 3; index++)
                     {
                         var mark = new Mark();
-                        mark.TeacherId = teachersPerDiscipline[discipline.Id][random.Next(teachersPerDiscipline[discipline.Id].Count)]; //discipline.Teachers.FirstOrDefault().Id;
+                        mark.TeacherId = teachersPerDiscipline[discipline.Id][random.Next(teachersPerDiscipline[discipline.Id].Count)];
                         mark.DisciplineId = discipline.Id;
                         mark.StudentId = student.Id;
                         mark.Value = random.Next(1, 7);

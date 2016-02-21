@@ -11,14 +11,14 @@
     {
         public static void Main()
         {
-            //    var db = new ApplicationDbContext();
+            // var db = new ApplicationDbContext();
             //    var repo = new DbRepository<JokeCategory>(db);
             //    var categoriesService = new CategoriesService(repo);
 
-            //    var configuration = Configuration.Default.WithDefaultLoader();
+            // var configuration = Configuration.Default.WithDefaultLoader();
             //    var browsingContext = BrowsingContext.New(configuration);
 
-            //    for (int i = 1; i <= 10000; i++)
+            // for (int i = 1; i <= 10000; i++)
             //    {
             //        var url = $"http://vicove.com/vic-{i}";
             //        var document = browsingContext.OpenAsync(url).Result;

@@ -12,27 +12,7 @@
             </tr>
             @foreach (var student in Model)
             {
-                <tr data-row-index="@student.Id">
-                    <td>
-                        @Html.ActionLink($"{@student.FirstName} {@student.SecondName}", "Details", "Student", new { id = student.Id }, null)
-                    </td>
-                    @foreach (var mark in student.Marks.Where(m => m.Discipline == "Mathematics").ToList())
-                    {
-                        <td>@mark.Value</td>
-                    }
-                    @foreach (var mark in student.Marks.Where(m => m.Discipline == "English").ToList())
-                    {
-                        <td>@mark.Value</td>
-                    }
-                    @foreach (var mark in student.Marks.Where(m => m.Discipline == "Gymnastics").ToList())
-                    {
-                        <td>@mark.Value</td>
-                    }
-                    @foreach (var mark in student.Marks.Where(m => m.Discipline == "Musics").ToList())
-                    {
-                        <td>@mark.Value</td>
-                    }
-                </tr>
+                @Html.Partial("_StudentDetailsPartial", student)
             }
         </table>
     </div>

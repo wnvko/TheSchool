@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using Web.ViewModels.Students;
+
     public class TutorClassIndexViewModel
     {
         public int Page { get; set; }

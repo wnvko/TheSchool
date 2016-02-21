@@ -9,11 +9,9 @@
     {
         public int Id { get; set; }
 
-        [UIHint("MarksDropDownList")]
         public int Value { get; set; }
 
         public string Student { get; set; }
-
 
         public string Discipline { get; set; }
 

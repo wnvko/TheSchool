@@ -1,0 +1,23 @@
+﻿@model TheSchool.Web.ViewModels.Students.StudentViewModel
+
+<tr data-row-index="@Model.Id">
+    <td>
+        @Html.ActionLink($"{@Model.FirstName} {@Model.SecondName}", "Details", "Student", new { id = Model.Id }, null)
+    </td>
+    @foreach (var mark in Model.Marks.Where(m => m.Discipline == "Mathematics").ToList())
+    {
+        <td>@mark.Value</td>
+    }
+    @foreach (var mark in Model.Marks.Where(m => m.Discipline == "English").ToList())
+    {
+        <td>@mark.Value</td>
+    }
+    @foreach (var mark in Model.Marks.Where(m => m.Discipline == "Gymnastics").ToList())
+    {
+        <td>@mark.Value</td>
+    }
+    @foreach (var mark in Model.Marks.Where(m => m.Discipline == "Musics").ToList())
+    {
+        <td>@mark.Value</td>
+    }
+</tr>

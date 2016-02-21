@@ -205,6 +205,7 @@
     <Compile Include="Areas\Teacher\ViewModels\MarksDropDownListModel.cs" />
     <Compile Include="Areas\Teacher\ViewModels\MarkUpdateModel.cs" />
     <Compile Include="Areas\Teacher\ViewModels\StudentDetailsViewModel.cs" />
+    <Compile Include="Areas\Teacher\ViewModels\StudentWithMarksInputModel.cs" />
     <Compile Include="Areas\Teacher\ViewModels\TutorClassIndexViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -235,6 +236,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Marks\MarksInputModel.cs" />
     <Compile Include="ViewModels\Marks\MarksViewModel.cs" />
     <Compile Include="ViewModels\Students\StudentViewModel.cs" />
   </ItemGroup>
@@ -264,6 +266,7 @@
     <Content Include="Areas\Teacher\Views\TutorClass\Index.cshtml" />
     <Content Include="Areas\Teacher\Views\Student\Details.cshtml" />
     <Content Include="Areas\Teacher\Views\Shared\_StudentsDetailsPartial.cshtml" />
+    <Content Include="Areas\Teacher\Views\Shared\_StudentDetailsPartial.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
