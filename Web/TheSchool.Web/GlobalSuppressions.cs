@@ -5,4 +5,5 @@
 // a specific target and scoped to a namespace, type, member, etc.
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:Field names must not use Hungarian notation", Justification = "<Pending>", Scope = "member", Target = "~M:TheSchool.Web.Areas.Teacher.Controllers.TutorClassController.Index~System.Web.Mvc.ActionResult")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:Field names must not use Hungarian notation", Justification = "<Pending>", Scope = "member", Target = "~M:TheSchool.Web.Areas.Teacher.Controllers.TutorClassController.Index(System.Int32)~System.Web.Mvc.ActionResult")]
 
