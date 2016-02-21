@@ -201,6 +201,9 @@
     <Compile Include="App_Start\SmsService.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\TeacherController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Teacher\DisciplineViewModelForTeachers.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Teacher\DivisionViewModelForTeachers.cs" />
     <Compile Include="Areas\Administration\ViewModels\Teacher\TeacherViewModel.cs" />
     <Compile Include="Areas\Teacher\Controllers\StudentController.cs" />
     <Compile Include="Areas\Teacher\Controllers\TutorClassController.cs" />
@@ -295,6 +298,7 @@
     <Content Include="Content\Kendo\kendo.common.min.css.map" />
     <Content Include="Content\Kendo\kendo.default.min.css.map" />
     <Content Include="Content\Kendo\kendo.default.mobile.min.css.map" />
+    <Content Include="Areas\Administration\Views\Teacher\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -360,7 +364,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Controllers\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="ExternalLibraries\" />
     <Folder Include="Views\Base\" />

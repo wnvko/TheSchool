@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - TheSchool</title>
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/kendoui")
+    @Styles.Render("~/KendoCss")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/kendoui")
 
@@ -29,6 +29,10 @@
                     @if (Roles.IsUserInRole(GlobalConstants.TeacherRoleName))
                     {
                         <li>@Html.ActionLink("My Class", "Index", "TutorClass", new { area = "Teacher" }, null)</li>
+                    }
+                    @if (Roles.IsUserInRole(GlobalConstants.AdministratorRoleName))
+                    {
+                        <li>@Html.ActionLink("Teachers", "Read", "Teacher", new { area = "Administration" }, null)</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

@@ -1,0 +1,58 @@
+﻿@using Kendo.Mvc.UI
+
+@(Html.Kendo().Grid<TheSchool.Web.Areas.Administration.ViewModels.Teacher.TeacherViewModel>()
+    .Name("teachersGrid")
+    .Columns(columns =>
+    {
+        columns.Bound(c => c.Id).Hidden();
+        columns.Bound(c => c.FirstName);
+        columns.Bound(c => c.SecondName);
+        //columns.Bound(c => c.Divisions);
+        //columns.Bound(c => c.Disciplines);
+        //columns.Bound(c => c.Marks);
+        columns.Command(command =>
+        {
+            command.Edit();
+            command.Destroy();
+        }).Width(250);
+    })
+    .ToolBar(toolbar => toolbar.Create())
+    .Editable(editable => editable.Mode(GridEditMode.InLine))
+    .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(3)
+        .PreviousNext(true))
+    .Sortable()
+    .Scrollable()
+    .HtmlAttributes(new { style = "height:550px;" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(5)
+        .Events(events => events.Error("error_handler"))
+        .Model(model => model.Id(p => p.Id))
+        .Create(update => update.Action("Create", "Teacher"))
+        .Read(read => read.Action("Read", "Teacher"))
+        .Update(update => update.Action("Update", "Teacher"))
+        .Destroy(update => update.Action("Destroy", "Teacher"))
+    )
+)
+
+@section Scripts
+{
+    <script type="text/javascript">
+        function error_handler(e) {
+            if (e.errors) {
+                var message = "Errors:\n";
+                $.each(e.errors, function (key, value) {
+                    if ('errors' in value) {
+                        $.each(value.errors, function () {
+                            message += this + "\n";
+                        });
+                    }
+                });
+                alert(message);
+            }
+        }
+    </script>
+}

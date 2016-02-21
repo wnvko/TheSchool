@@ -12,10 +12,10 @@
 
         public string SecondName { get; set; }
 
-        public virtual ICollection<Division> Divisions { get; set; }
+        //public virtual ICollection<DivisionViewModelForTeachers> Divisions { get; set; }
 
-        public virtual ICollection<Discipline> Disciplines { get; set; }
+        //public virtual ICollection<DisciplineViewModelForTeachers> Disciplines { get; set; }
 
-        public virtual ICollection<Mark> Marks { get; set; }
+        //public virtual ICollection<Mark> Marks { get; set; }
     }
 }
