@@ -5,8 +5,14 @@
 
     public interface IDisciplinesSerivice
     {
+        Discipline Add(Discipline discipline);
+
         IQueryable<Discipline> All();
 
+        void Delete(Discipline discipline);
+
         Discipline GetById(int id);
+
+        void Save();
     }
 }

@@ -32,7 +32,8 @@
                     }
                     @if (Roles.IsUserInRole(GlobalConstants.AdministratorRoleName))
                     {
-                        <li>@Html.ActionLink("Teachers", "Read", "Teacher", new { area = "Administration" }, null)</li>
+                        <li>@Html.ActionLink("Teachers", "Index", "Teacher", new { area = "Administration" }, null)</li>
+                        <li>@Html.ActionLink("Disciplines", "Index", "Discipline", new { area = "Administration" }, null)</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

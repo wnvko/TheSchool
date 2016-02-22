@@ -1,12 +1,10 @@
 ﻿namespace TheSchool.Web.Areas.Administration.Controllers
 {
-    using System.Linq;
     using System.Web.Mvc;
     using Common;
     using Infrastructure.Mapping;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
-    using Newtonsoft.Json;
     using Services.Data;
     using TheSchool.Data.Models;
     using ViewModels.Teacher;
@@ -16,24 +14,15 @@
     public class TeacherController : BaseController
     {
         private readonly ITeachersService teachers;
-        private readonly IDisciplinesSerivice disciplines;
 
         public TeacherController(ITeachersService teachers, IDisciplinesSerivice disciplines)
         {
             this.teachers = teachers;
-            this.disciplines = disciplines;
         }
 
         public ActionResult Index()
         {
             return this.View();
-        }
-
-        public ActionResult Read([DataSourceRequest]DataSourceRequest request)
-        {
-            var tet = this.teachers.All().To<TeacherViewModel>().ToList();
-            var teachers = this.teachers.All().To<TeacherViewModel>();
-            return this.Json(teachers.ToDataSourceResult(request), JsonRequestBehavior.AllowGet);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -49,6 +38,12 @@
             }
 
             return this.Json(new[] { model }.ToDataSourceResult(request, this.ModelState));
+        }
+
+        public ActionResult Read([DataSourceRequest]DataSourceRequest request)
+        {
+            var teachers = this.teachers.All().To<TeacherViewModel>();
+            return this.Json(teachers.ToDataSourceResult(request), JsonRequestBehavior.AllowGet);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -68,7 +63,7 @@
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult EditingInline_Destroy([DataSourceRequest] DataSourceRequest request, TeacherViewModel model)
+        public ActionResult Destroy([DataSourceRequest] DataSourceRequest request, TeacherViewModel model)
         {
             if (model != null)
             {
@@ -84,8 +79,8 @@
             teacher.FirstName = model.FirstName;
             teacher.SecondName = model.SecondName;
 
-            //teacher.Divisions = model.Divisions;
-            //teacher.Marks = model.Marks;
+            // teacher.Divisions = model.Divisions;
+            // teacher.Marks = model.Marks;
         }
     }
 }

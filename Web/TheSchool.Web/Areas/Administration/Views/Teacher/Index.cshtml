@@ -1,5 +1,10 @@
 ﻿@using Kendo.Mvc.UI
 
+@{
+    ViewBag.Title = "Teachers";
+}
+
+
 @(Html.Kendo().Grid<TheSchool.Web.Areas.Administration.ViewModels.Teacher.TeacherViewModel>()
     .Name("teachersGrid")
     .Columns(columns =>

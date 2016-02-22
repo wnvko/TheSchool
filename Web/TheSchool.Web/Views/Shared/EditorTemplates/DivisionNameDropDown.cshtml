@@ -1,0 +1,7 @@
+﻿@model TheSchool.Web.Areas.Administration.ViewModels.Teacher.DivisionViewModelForTeachers
+
+@(Html.Kendo().DropDownListFor(m => m)
+        .DataValueField("Id")
+        .DataTextField("Name")
+        .BindTo((System.Collections.IEnumerable)ViewData["Disciplines"])
+)
