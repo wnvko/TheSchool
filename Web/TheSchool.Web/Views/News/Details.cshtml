@@ -5,16 +5,28 @@
 }
 
 <div class="row">
-    <div class="col-md-2 jumbotron">
-        <h3 class="text-center">@Model.Votes</h3>
-        <h3 class="text-center">Votes</h3>
+    <div class="col-md-1 well">
+        <h3 class="text-center" data-id="@Model.Id" data-field="votesCount">@Model.Votes</h3>
+        <div class="text-center">Votes</div>
         @if (User.Identity.IsAuthenticated)
         {
-            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-        }
+            <div class="text-center">
+                <span data-id="@Model.Id" data-field="addVote" class="btn btn-lg glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+            </div>}
     </div>
     <div class="col-md-10">
         @Html.DisplayFor(m => m, "NewsFull")
     </div>
 </div>
 
+@section scripts{
+    <script>
+        $("span[data-field='addVote']").click(function () {
+            var id = $(this).attr("data-id");
+            $.post("/News/Vote", { id: id }, function (data) {
+                var newVotesCount = data.Count;
+                $("h3[data-field='votesCount'][data-id='" + id + "']").html(newVotesCount)
+            });
+        });
+    </script>
+}
