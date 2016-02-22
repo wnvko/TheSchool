@@ -1,0 +1,8 @@
+﻿@model TheSchool.Web.ViewModels.Students.StudentViewModel
+
+<div class="col-md-9">
+    @Model.FirstName @Model.SecondName
+</div>
+<div class="col-md-3">
+    @Model.Marks.Average(m => m.Value).ToString("#.00")
+</div>

@@ -1,0 +1,7 @@
+﻿@model TheSchool.Web.ViewModels.News.NewsViewModel
+
+<div class="row">
+    <h4>@Html.ActionLink(@Model.Title, "Details", "News", new { area = string.Empty, id = Model.Id }, null)</h4>
+    <h4 class="small"><i>from @Model.Author writen on @Html.DisplayFor(d => d.CreatedOn) </i></h4>
+    <p class="">@(Model.Content.Length > 100 ? Model.Content.Substring(0, 100) : Model.Content) ...@Html.ActionLink("more", "Details", "News", new { area = string.Empty, id = Model.Id }, null)</p>
+</div>

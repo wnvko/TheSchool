@@ -224,6 +224,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -249,6 +250,7 @@
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Marks\MarksInputModel.cs" />
     <Compile Include="ViewModels\Marks\MarksViewModel.cs" />
+    <Compile Include="ViewModels\News\NewsViewModel.cs" />
     <Compile Include="ViewModels\Students\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -369,6 +371,11 @@
     <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DivisionNameDropDown.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\NewsShort.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\TopTenStudents.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\NewsFull.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

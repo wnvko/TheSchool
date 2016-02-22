@@ -6,6 +6,10 @@
 <div class="row">
     <div class="col-md-8">
         <h3 class="lead">Latest News</h3>
+        @foreach (var news in Model.News)
+        {
+            @Html.DisplayFor(n => news, "NewsShort")
+        }
     </div>
     <div class="col-md-4">
         <div class="col-md-12">
@@ -19,12 +23,7 @@
         </div>
         @foreach (var student in Model.Students)
         {
-            <div class="col-md-9">
-                @student.FirstName @student.SecondName
-            </div>
-            <div class="col-md-3">
-                @student.Marks.Average(m => m.Value).ToString("#.00")
-            </div>
+            @Html.DisplayFor(s => student, "TopTenStudents")
         }
     </div>
 </div>

@@ -27,6 +27,10 @@
 
         public IDbSet<Teacher> Teachers { get; set; }
 
+        public IDbSet<News> News { get; set; }
+
+        public IDbSet<Vote> Votes { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

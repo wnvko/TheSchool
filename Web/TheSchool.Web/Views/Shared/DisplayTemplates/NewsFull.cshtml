@@ -1,0 +1,5 @@
+﻿@model TheSchool.Web.ViewModels.News.NewsViewModel
+
+<h3>@Model.Title</h3>
+<h4><i>from @Model.Author writen on @Html.DisplayFor(d => d.CreatedOn) </i></h4>
+<p>@Html.Raw(Model.Content.Replace("\n", "<br>"))</p>
