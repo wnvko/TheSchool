@@ -2,9 +2,12 @@
 {
     using System.Web.Mvc;
     using Common;
+    using Data;
     using Infrastructure.Mapping;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Services.Data;
     using TheSchool.Data.Models;
     using ViewModels.Teacher;
@@ -33,8 +36,15 @@
                 var teacher = new Teacher();
                 this.UpdateTeacherFromModel(model, teacher);
 
-                this.teachers.Add(teacher);
-                model.Id = teacher.Id;
+                var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+                var userManager = new UserManager<ApplicationUser>(userStore);
+                var result = userManager.Create(teacher, teacher.Email);
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRole(teacher.Id, GlobalConstants.TeacherRoleName);
+                    model.Id = teacher.Id;
+                }
             }
 
             return this.Json(new[] { model }.ToDataSourceResult(request, this.ModelState));
@@ -78,6 +88,8 @@
         {
             teacher.FirstName = model.FirstName;
             teacher.SecondName = model.SecondName;
+            teacher.Email = $"{model.FirstName}.{model.SecondName}@theschool.com";
+            teacher.UserName = teacher.Email;
 
             // teacher.Divisions = model.Divisions;
             // teacher.Marks = model.Marks;

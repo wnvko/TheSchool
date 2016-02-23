@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace TheSchool.Web.ViewModels.News
+﻿namespace TheSchool.Web.ViewModels.News
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class NewsInputModel
     {
         [Required]

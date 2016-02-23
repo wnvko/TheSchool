@@ -13,6 +13,8 @@
 
         public string SecondName { get; set; }
 
+        public bool IsTeacher { get; set; }
+
         public virtual ICollection<DivisionViewModelForTeachers> Divisions { get; set; }
 
         [UIHint("DivisionNameDropDown")]
