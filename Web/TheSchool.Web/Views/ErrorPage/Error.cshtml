@@ -1,0 +1,16 @@
+﻿@model HandleErrorInfo
+
+@{
+    ViewBag.Title = "This is the end...";
+}
+
+<h1 class="text-danger jumbotron">You have reached the end of the Internet...</h1>
+<h2 class="text-danger jumbotron">Choose you next step.</h2>
+<div class="row">
+    <div class="col-md-6">
+        @Html.ActionLink("Go Back", "Index", "Home", new { area = string.Empty }, new { @class = " btn btn-lg btn-success" })
+    </div>
+    <div class="col-md-6">
+        @Html.ActionLink("Go Ahead", "Empty", "Home", new { area = string.Empty }, new { @class = " btn btn-lg btn-success" })
+    </div>
+</div>

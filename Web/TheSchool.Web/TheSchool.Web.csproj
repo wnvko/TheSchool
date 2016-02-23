@@ -221,6 +221,7 @@
     <Compile Include="Areas\Teacher\ViewModels\TutorClassIndexViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
@@ -250,6 +251,8 @@
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Marks\MarksInputModel.cs" />
     <Compile Include="ViewModels\Marks\MarksViewModel.cs" />
+    <Compile Include="ViewModels\News\NewsIndexViewModel.cs" />
+    <Compile Include="ViewModels\News\NewsInputModel.cs" />
     <Compile Include="ViewModels\News\NewsViewModel.cs" />
     <Compile Include="ViewModels\Students\StudentViewModel.cs" />
   </ItemGroup>
@@ -330,7 +333,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\ErrorPage\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -376,6 +379,10 @@
     <Content Include="Views\Shared\DisplayTemplates\TopTenStudents.cshtml" />
     <Content Include="Views\News\Details.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\NewsFull.cshtml" />
+    <Content Include="Views\ErrorPage\Index.cshtml" />
+    <Content Include="Views\Home\Empty.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\AddNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

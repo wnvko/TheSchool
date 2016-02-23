@@ -39,5 +39,10 @@
 
             return this.View(viewModel);
         }
+
+        public ActionResult Empty()
+        {
+            return this.View();
+        }
     }
 }

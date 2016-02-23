@@ -26,8 +26,10 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("News", "Index", "News", new { area = string.Empty }, null)</li>
                     @if (Roles.IsUserInRole(GlobalConstants.TeacherRoleName))
                     {
+                        <li>@Html.ActionLink("Add News", "AddNews", "News", new { area = string.Empty }, null)</li>
                         <li>@Html.ActionLink("My Class", "Index", "TutorClass", new { area = "Teacher" }, null)</li>
                     }
                     @if (Roles.IsUserInRole(GlobalConstants.AdministratorRoleName))

@@ -4,20 +4,7 @@
     ViewBag.Title = Model.Title;
 }
 
-<div class="row">
-    <div class="col-md-1 well">
-        <h3 class="text-center" data-id="@Model.Id" data-field="votesCount">@Model.Votes</h3>
-        <div class="text-center">Votes</div>
-        @if (User.Identity.IsAuthenticated)
-        {
-            <div class="text-center">
-                <span data-id="@Model.Id" data-field="addVote" class="btn btn-lg glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
-            </div>}
-    </div>
-    <div class="col-md-10">
-        @Html.DisplayFor(m => m, "NewsFull")
-    </div>
-</div>
+@Html.DisplayFor(m => m, "NewsFull")
 
 @section scripts{
     <script>

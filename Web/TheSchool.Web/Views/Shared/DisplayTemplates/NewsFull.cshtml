@@ -1,5 +1,18 @@
 ﻿@model TheSchool.Web.ViewModels.News.NewsViewModel
 
-<h3>@Model.Title</h3>
-<h4><i>from @Model.Author writen on @Html.DisplayFor(d => d.CreatedOn) </i></h4>
-<p>@Html.Raw(Model.Content.Replace("\n", "<br>"))</p>
+<div class="row">
+    <div class="col-md-1 well">
+        <h3 class="text-center" data-id="@Model.Id" data-field="votesCount">@Model.Votes</h3>
+        <div class="text-center">Votes</div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="text-center">
+                <span data-id="@Model.Id" data-field="addVote" class="btn btn-lg glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+            </div>}
+    </div>
+    <div class="col-md-10">
+        <h3>@Model.Title</h3>
+        <h4><i>from @Model.Author writen on @Html.DisplayFor(d => d.CreatedOn) </i></h4>
+        <p>@Html.Raw(Model.Content.Replace("\n", "<br>"))</p>
+    </div>
+</div>

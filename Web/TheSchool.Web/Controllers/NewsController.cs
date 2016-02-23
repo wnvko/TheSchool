@@ -1,7 +1,9 @@
 ﻿namespace TheSchool.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
+    using Common;
     using Data.Models;
     using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
@@ -10,6 +12,7 @@
 
     public class NewsController : Controller
     {
+        private const decimal NewsPerPage = 5m;
         private readonly INewsService news;
         private readonly IVotesService votes;
 
@@ -52,6 +55,64 @@
                 .Votes.Count();
 
             return this.Json(new { Count = votesCount });
+        }
+
+        public ActionResult Index(int id = 1)
+        {
+            var newsCount = this.news
+                .All()
+                .Count();
+            var page = id;
+            var pages = (int)Math.Ceiling(newsCount / NewsPerPage);
+            var skip = (page - 1) * NewsPerPage;
+
+            var news = this.news
+                .All()
+                .OrderBy(n => n.Votes.Count())
+                .ThenBy(n => n.Id)
+                .Skip((int)skip)
+                .Take((int)NewsPerPage)
+                .To<NewsViewModel>()
+                .ToList();
+
+            var viewModel = new NewsIndexViewModel()
+            {
+                News = news,
+                Page = page,
+                Pages = pages,
+            };
+
+            return this.View(viewModel);
+        }
+
+        [Authorize(Roles = GlobalConstants.TeacherRoleName)]
+        [HttpGet]
+        public ActionResult AddNews()
+        {
+            return this.View();
+        }
+
+        [Authorize(Roles = GlobalConstants.TeacherRoleName)]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddNews(NewsInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            var userId = this.User.Identity.GetUserId();
+            var news = new News()
+            {
+                AuthorId = userId,
+                Title = model.Title,
+                Content = model.Content,
+            };
+
+            this.news.Add(news);
+
+            return this.RedirectToAction("Details", new { id = news.Id });
         }
     }
 }
