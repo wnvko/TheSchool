@@ -312,6 +312,7 @@
     <Content Include="Content\Kendo\kendo.default.mobile.min.css.map" />
     <Content Include="Areas\Administration\Views\Teacher\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Discipline\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FTP.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
