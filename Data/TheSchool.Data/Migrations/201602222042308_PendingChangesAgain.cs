@@ -3,6 +3,9 @@
     using System;
     using System.Data.Entity.Migrations;
 
+    /// <summary>
+    /// For StyleCop :)
+    /// </summary>
     public partial class PendingChangesAgain : DbMigration
     {
         public override void Up()

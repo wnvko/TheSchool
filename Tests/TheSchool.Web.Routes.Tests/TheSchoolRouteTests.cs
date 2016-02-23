@@ -13,11 +13,11 @@
         public void TestNewsDetailsRouteById()
         {
             var routesCollection = new RouteCollection();
-            const string url = @"/News/Details/95";
+            const string Url = @"/News/Details/95";
 
             RouteConfig.RegisterRoutes(routesCollection);
 
-            routesCollection.ShouldMap(url)
+            routesCollection.ShouldMap(Url)
                 .To<NewsController>(
                     c => c.Details(95));
         }
@@ -26,24 +26,24 @@
         public void TestNewsIndexRouteById()
         {
             var routesCollection = new RouteCollection();
-            const string url = @"/News/Index/2";
+            const string Url = @"/News/Index/2/vote";
 
             RouteConfig.RegisterRoutes(routesCollection);
 
-            routesCollection.ShouldMap(url)
+            routesCollection.ShouldMap(Url)
                 .To<NewsController>(
-                    c => c.Index(2));
+                    c => c.Index("vote", 2));
         }
 
         [Test]
         public void TestNewsAddNewsGetRoute()
         {
             var routesCollection = new RouteCollection();
-            const string url = @"/News/AddNews";
+            const string Url = @"/News/AddNews";
 
             RouteConfig.RegisterRoutes(routesCollection);
 
-            routesCollection.ShouldMap(url)
+            routesCollection.ShouldMap(Url)
                 .To<NewsController>(
                     c => c.AddNews());
         }
@@ -52,11 +52,11 @@
         public void TestNewsAddNewsPostRoute()
         {
             var routesCollection = new RouteCollection();
-            const string url = @"/News/AddNews";
+            const string Url = @"/News/AddNews";
 
             RouteConfig.RegisterRoutes(routesCollection);
 
-            routesCollection.ShouldMap(url)
+            routesCollection.ShouldMap(Url)
                 .To<NewsController>(
                     c => c.AddNews(new NewsInputModel()));
         }
@@ -65,11 +65,11 @@
         public void TestHomeIndexRoute()
         {
             var routesCollection = new RouteCollection();
-            const string url = @"/Home/Index";
+            const string Url = @"/Home/Index";
 
             RouteConfig.RegisterRoutes(routesCollection);
 
-            routesCollection.ShouldMap(url)
+            routesCollection.ShouldMap(Url)
                 .To<HomeController>(
                     c => c.Index());
         }

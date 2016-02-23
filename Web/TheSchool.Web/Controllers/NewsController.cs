@@ -57,7 +57,7 @@
             return this.Json(new { Count = votesCount });
         }
 
-        public ActionResult Index(int id = 1)
+        public ActionResult Index(string order, int id = 1)
         {
             var newsCount = this.news
                 .All()
@@ -66,10 +66,21 @@
             var pages = (int)Math.Ceiling(newsCount / NewsPerPage);
             var skip = (page - 1) * NewsPerPage;
 
-            var news = this.news
-                .All()
-                .OrderBy(n => n.Votes.Count())
-                .ThenBy(n => n.Id)
+            var allNews = this.news
+                .All();
+
+            var orderType = order;
+            IOrderedQueryable<News> orderedNews = null;
+            if (orderType == "date")
+            {
+                orderedNews = allNews.OrderBy(n => n.CreatedOn).ThenBy(n => n.Id);
+            }
+            else
+            {
+                orderedNews = allNews.OrderByDescending(n => n.Votes.Count()).ThenBy(n => n.Id);
+            }
+
+            var news = orderedNews
                 .Skip((int)skip)
                 .Take((int)NewsPerPage)
                 .To<NewsViewModel>()

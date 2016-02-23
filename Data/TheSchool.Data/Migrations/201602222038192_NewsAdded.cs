@@ -3,6 +3,9 @@
     using System;
     using System.Data.Entity.Migrations;
 
+    /// <summary>
+    /// For Stylecop :)
+    /// </summary>
     public partial class NewsAdded : DbMigration
     {
         public override void Up()
