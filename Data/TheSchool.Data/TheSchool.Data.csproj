@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="Migrations\201602222038192_NewsAdded.cs" />
     <Compile Include="Migrations\201602222042308_PendingChangesAgain.cs" />
+    <Compile Include="Migrations\201602232311363_Last.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
