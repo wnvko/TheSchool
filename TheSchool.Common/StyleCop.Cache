@@ -1,13 +1,10 @@
 <stylecopresultscache>
   <version>12</version>
-  <project key="-138249234">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="GlobalConstants.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2016/02/08 09:03:52.184</styleCop>
       <settingsFile>2016/02/20 10:41:51.367</settingsFile>
-      <sourceFile>2016/02/20 13:45:50.980</sourceFile>
+      <sourceFile>2016/02/20 10:41:51.477</sourceFile>
       <parser>2016/02/08 09:03:52.184</parser>
       <StyleCop.CSharp.DocumentationRules>2016/02/08 09:03:52.184</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>-186025044</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -49,7 +46,7 @@
     </timestamps>
     <violations />
   </sourcecode>
-  <project key="-2053798148">
+  <project key="-138249234">
     <configuration>DEBUG;TRACE</configuration>
   </project>
 </stylecopresultscache>

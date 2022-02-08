@@ -1,0 +1,14 @@
+/.vs/TheSchool/v14/*.suo
+/Data/TheSchool.Data.Common/bin/Debug/*.dll
+/Data/TheSchool.Data.Common/bin/Debug/*.xml
+*.dll
+*.xml
+packages
+Debug
+bin
+.vs
+/Web/TheSchool.Web/App_Data/ASPNETDB.MDF
+/Web/TheSchool.Web/App_Data/aspnetdb_log.ldf
+TheSchool.zip
+Your Web application should use the following technologies.docx
+bootstrap-3.3.6-dist.zip

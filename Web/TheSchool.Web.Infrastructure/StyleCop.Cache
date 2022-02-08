@@ -1,8 +1,5 @@
 <stylecopresultscache>
   <version>12</version>
-  <project key="78945933">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="AutoMapperConfig.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2016/02/08 09:03:52.184</styleCop>
@@ -141,7 +138,7 @@
     </timestamps>
     <violations />
   </sourcecode>
-  <project key="1241491191">
+  <project key="78945933">
     <configuration>DEBUG;TRACE</configuration>
   </project>
 </stylecopresultscache>

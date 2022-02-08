@@ -82,9 +82,6 @@
       <HintPath>..\..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Kendo.Mvc">
-      <HintPath>ExternalLibraries\Kendo.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -201,32 +198,12 @@
     <Compile Include="App_Start\SmsService.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
-    <Compile Include="Areas\Administration\Controllers\DisciplineController.cs" />
-    <Compile Include="Areas\Administration\Controllers\DivisionController.cs" />
-    <Compile Include="Areas\Administration\Controllers\TeacherController.cs" />
-    <Compile Include="Areas\Administration\ViewModels\Discipline\DisciplineViewModel.cs" />
-    <Compile Include="Areas\Administration\ViewModels\Discipline\DivisionViewModelForDiscipline.cs" />
-    <Compile Include="Areas\Administration\ViewModels\Discipline\MarksViewModelForDisciplines.cs" />
-    <Compile Include="Areas\Administration\ViewModels\Discipline\TeachersViewModelForDiscipline.cs" />
-    <Compile Include="Areas\Administration\ViewModels\Teacher\DisciplineViewModelForTeachers.cs" />
-    <Compile Include="Areas\Administration\ViewModels\Teacher\DivisionViewModelForTeachers.cs" />
-    <Compile Include="Areas\Administration\ViewModels\Teacher\MarkViewModelForTeachers.cs" />
-    <Compile Include="Areas\Administration\ViewModels\Teacher\TeacherViewModel.cs" />
-    <Compile Include="Areas\Teacher\Controllers\StudentController.cs" />
-    <Compile Include="Areas\Teacher\Controllers\TutorClassController.cs" />
-    <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
-    <Compile Include="Areas\Teacher\ViewModels\MarksDropDownListModel.cs" />
-    <Compile Include="Areas\Teacher\ViewModels\MarkUpdateModel.cs" />
-    <Compile Include="Areas\Teacher\ViewModels\StudentDetailsViewModel.cs" />
-    <Compile Include="Areas\Teacher\ViewModels\StudentWithMarksInputModel.cs" />
-    <Compile Include="Areas\Teacher\ViewModels\TutorClassIndexViewModel.cs" />
+    <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
-    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -239,7 +216,6 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
-    <Compile Include="ViewModels\Home\HomeIndexViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\FactorViewModel.cs" />
@@ -250,31 +226,12 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
-    <Compile Include="ViewModels\Marks\MarksInputModel.cs" />
-    <Compile Include="ViewModels\Marks\MarksViewModel.cs" />
-    <Compile Include="ViewModels\News\NewsIndexViewModel.cs" />
-    <Compile Include="ViewModels\News\NewsInputModel.cs" />
-    <Compile Include="ViewModels\News\NewsViewModel.cs" />
-    <Compile Include="ViewModels\Students\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Kendo\kendo.common-bootstrap.core.min.css" />
-    <Content Include="Content\Kendo\kendo.common-bootstrap.min.css" />
-    <Content Include="Content\Kendo\kendo.common-fiori.core.min.css" />
-    <Content Include="Content\Kendo\kendo.common-fiori.min.css" />
-    <Content Include="Content\Kendo\kendo.common-material.core.min.css" />
-    <Content Include="Content\Kendo\kendo.common-material.min.css" />
-    <Content Include="Content\Kendo\kendo.common-nova.core.min.css" />
-    <Content Include="Content\Kendo\kendo.common-nova.min.css" />
-    <Content Include="Content\Kendo\kendo.common-office365.min.css" />
-    <Content Include="Content\Kendo\kendo.common.core.min.css" />
-    <Content Include="Content\Kendo\kendo.common.min.css" />
-    <Content Include="Content\Kendo\kendo.default.min.css" />
-    <Content Include="Content\Kendo\kendo.default.mobile.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -291,40 +248,14 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Teacher\Views\web.config" />
-    <Content Include="Areas\Teacher\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Teacher\Views\TutorClass\Index.cshtml" />
-    <Content Include="Areas\Teacher\Views\Student\Details.cshtml" />
-    <Content Include="Areas\Teacher\Views\Shared\_StudentsDetailsPartial.cshtml" />
-    <Content Include="Areas\Teacher\Views\Shared\_StudentDetailsPartial.cshtml" />
-    <Content Include="Content\Kendo\kendo.common-bootstrap.core.min.css.map" />
-    <Content Include="Content\Kendo\kendo.common-bootstrap.min.css.map" />
-    <Content Include="Content\Kendo\kendo.common-fiori.core.min.css.map" />
-    <Content Include="Content\Kendo\kendo.common-fiori.min.css.map" />
-    <Content Include="Content\Kendo\kendo.common-material.core.min.css.map" />
-    <Content Include="Content\Kendo\kendo.common-material.min.css.map" />
-    <Content Include="Content\Kendo\kendo.common-nova.core.min.css.map" />
-    <Content Include="Content\Kendo\kendo.common-nova.min.css.map" />
-    <Content Include="Content\Kendo\kendo.common-office365.min.css.map" />
-    <Content Include="Content\Kendo\kendo.common.core.min.css.map" />
-    <Content Include="Content\Kendo\kendo.common.min.css.map" />
-    <Content Include="Content\Kendo\kendo.default.min.css.map" />
-    <Content Include="Content\Kendo\kendo.default.mobile.min.css.map" />
-    <Content Include="Areas\Administration\Views\Teacher\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Discipline\Index.cshtml" />
-    <None Include="Properties\PublishProfiles\FTP.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
-    <Content Include="Scripts\jquery.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\Kendo\kendo.all.min.js" />
-    <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -335,7 +266,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\ErrorPage\Error.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -359,40 +290,13 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
-    <Content Include="Views\Shared\EditorTemplates\MarksDropDownList.cshtml" />
-    <Content Include="Views\Shared\_StudentMarksPartial.cshtml" />
-    <Content Include="Scripts\Kendo\kendo.all.min.js.map" />
-    <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js.map" />
-    <Content Include="Views\Shared\EditorTemplates\Currency.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Email.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Integer.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\DivisionNameDropDown.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\NewsShort.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\TopTenStudents.cshtml" />
-    <Content Include="Views\News\Details.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\NewsFull.cshtml" />
-    <Content Include="Views\ErrorPage\Index.cshtml" />
-    <Content Include="Views\Home\Empty.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\News\AddNews.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
-    <Folder Include="ExternalLibraries\" />
+    <Folder Include="ViewModels\Home\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Teacher\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

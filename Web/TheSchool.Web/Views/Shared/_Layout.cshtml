@@ -1,16 +1,10 @@
-﻿@using TheSchool.Common
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - TheSchool</title>
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/KendoCss")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/kendoui")
-
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -26,17 +20,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
-                    <li>@Html.ActionLink("News", "Index", "News", new { area = string.Empty }, null)</li>
-                    @if (Roles.IsUserInRole(GlobalConstants.TeacherRoleName))
-                    {
-                        <li>@Html.ActionLink("Add News", "AddNews", "News", new { area = string.Empty }, null)</li>
-                        <li>@Html.ActionLink("My Class", "Index", "TutorClass", new { area = "Teacher" }, null)</li>
-                    }
-                    @if (Roles.IsUserInRole(GlobalConstants.AdministratorRoleName))
-                    {
-                        <li>@Html.ActionLink("Teachers", "Index", "Teacher", new { area = "Administration" }, null)</li>
-                        <li>@Html.ActionLink("Disciplines", "Index", "Discipline", new { area = "Administration" }, null)</li>
-                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -50,6 +33,7 @@
         </footer>
     </div>
 
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
