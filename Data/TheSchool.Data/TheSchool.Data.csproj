@@ -60,21 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="Migrations\201602200851472_InitialCreate.cs" />
-    <Compile Include="Migrations\201602200851472_InitialCreate.Designer.cs">
-      <DependentUpon>201602200851472_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602201225269_BaseDbStructureCreated.cs" />
-    <Compile Include="Migrations\201602201225269_BaseDbStructureCreated.Designer.cs">
-      <DependentUpon>201602201225269_BaseDbStructureCreated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602201437041_PendingChanges.cs" />
-    <Compile Include="Migrations\201602201437041_PendingChanges.Designer.cs">
-      <DependentUpon>201602201437041_PendingChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602222038192_NewsAdded.cs" />
-    <Compile Include="Migrations\201602222042308_PendingChangesAgain.cs" />
-    <Compile Include="Migrations\201602232311363_Last.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,17 +91,6 @@
     <AdditionalFiles Include="..\..\stylecop.json">
       <Link>stylecop.json</Link>
     </AdditionalFiles>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602200851472_InitialCreate.resx">
-      <DependentUpon>201602200851472_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602201225269_BaseDbStructureCreated.resx">
-      <DependentUpon>201602201225269_BaseDbStructureCreated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602201437041_PendingChanges.resx">
-      <DependentUpon>201602201437041_PendingChanges.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

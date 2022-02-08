@@ -48,7 +48,7 @@
 
             if (!context.Users.Any(u => u.Roles.Count == 0))
             {
-                AddRandomStudents(context, 320);
+                AddRandomStudents(context, 100);
             }
 
             if (!context.Teachers.Any(t => t.Divisions.Count > 0))
@@ -360,7 +360,7 @@
         private static void AddNews(ApplicationDbContext context)
         {
             var teachers = context.Teachers.ToList();
-            var newsCount = 100;
+            var newsCount = 20;
             for (int index = 0; index < newsCount; index++)
             {
                 var news = new News();
